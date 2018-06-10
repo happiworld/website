@@ -1,0 +1,65 @@
+<mjml>
+  <mj-head>
+    <mj-title>Hello world</mj-title>
+    <mj-font name="Roboto" href="https://fonts.googleapis.com/css?family=Roboto:300,500"></mj-font>
+    <mj-attributes>
+      <mj-all font-family="Roboto, Helvetica, sans-serif"></mj-all>
+      <mj-text font-weight="300" font-size="16px" color="#616161" line-height="24px"></mj-text>
+      <mj-section padding="0px"></mj-section>
+    </mj-attributes>
+  </mj-head>
+  <mj-body>
+    <mj-section padding="20px 0">
+      <mj-column width="60%">
+      </mj-column>
+      <mj-column width="40%">
+      </mj-column>
+    </mj-section>
+    <mj-section>
+      <mj-column width="100%">
+        <mj-image href="https://happiworld.org" src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/31739787_1978216948867260_2411946164761919488_n.jpg?_nc_cat=0&oh=5a3bc79a5f163c6295dcbe9a0ccd77c1&oe=5BC4EE4B"></mj-image>
+      </mj-column>
+    </mj-section>
+    <mj-section>
+      <mj-column width="100%">
+      </mj-column>
+    </mj-section>
+    <mj-section>
+      <mj-column width="45%">
+      </mj-column>
+    </mj-section>
+    <mj-section padding-top="30px">
+      <mj-column width="100%">
+        <mj-text>
+          <p>Bonjour __PAIEMENT_NOM__,</p>
+          <p> Votre transaction a été validée avec succès. </p>
+          <p> Identifiant de la transaction : __PAIEMENT_NUM_ORDRE__ <br/>
+          Montant du don : __PAIEMENT_MONTANT__ __PAIEMENT_DEVISE__
+          </p>
+          <p>Nous vous remercions chaleureusement pour votre don. Votre soutien est essentiel pour le développement de nos projets</p>
+          <p>Un reçu fiscal a été édité suite à votre don. Vous le trouverez en pièce jointe de cet email.</p>
+          <p>N'hésitez pas à consulter notre site internet <a href="https://happiworld.org">happiworld.org</a> afin de suivre nos actions ! </p>
+          <p>L'équipe Happi :)</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section>
+      <mj-column>
+        <mj-social font-size="15px" icon-size="30px" mode="horizontal">
+          <mj-social-element name="facebook" href="https://www.facebook.com/happi.lightsonsenegal/" background-color="#4d4d4d">
+            Facebook
+          </mj-social-element>
+          <mj-social-element name="instagram" href="https://www.instagram.com/happi_lightsonsenegal/?hl=fr" background-color="#4d4d4d">
+            Instagram
+          </mj-social-element>
+        </mj-social>
+      </mj-column>
+    </mj-section>
+    <mj-section>
+      <mj-column width="100%">
+        <mj-divider border-width="1px" border-color="#E0E0E0"></mj-divider>
+      </mj-column>
+    </mj-section>
+       <mj-section>
+  </mj-body>
+</mjml>

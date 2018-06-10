@@ -1,0 +1,46 @@
+{
+  "name": "happi-website",
+  "version": "0.0.1",
+  "description": "Happi Website",
+  "main": "index.js",
+  "scripts": {
+    "front:build": "npx gatsby build",
+    "front:develop": "npx gatsby develop",
+    "format": "npx prettier --write 'src/**/*.js'",
+    "now-build": "npm run front:build",
+    "now-start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/happiworld/website.git"
+  },
+  "keywords": [
+    "happi",
+    "website"
+  ],
+  "author": "inahappiworld@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/happiworld/website/issues"
+  },
+  "homepage": "https://github.com/happiworld/website#readme",
+  "dependencies": {
+    "apollo-fetch": "^0.7.0",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "mjml": "^4.0.5",
+    "nodemailer": "^4.6.5",
+    "pdfkit": "^0.8.3",
+    "stripe": "^6.1.0",
+    "axios": "^0.18.0",
+    "gatsby": "^1.9.247",
+    "gatsby-link": "^1.6.40",
+    "gatsby-plugin-google-analytics": "^1.0.31",
+    "gatsby-plugin-react-helmet": "^2.0.10",
+    "gatsby-source-graphcms": "^0.0.1",
+    "react-helmet": "^5.2.0",
+    "react-stripe-checkout": "^2.6.3"
+  }
+}

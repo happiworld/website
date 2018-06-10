@@ -1,0 +1,17 @@
+Bonjour __PAIEMENT_NOM__,
+
+Votre transaction a été validée avec succès.
+
+Identifiant de la transaction : __PAIEMENT_NUM_ORDRE__ 
+Montant du don : __PAIEMENT_MONTANT__ __PAIEMENT_DEVISE__
+
+Nous vous remercions chaleureusement pour votre don. Votre soutien est essentiel pour le développement de nos projets
+
+Un reçu fiscal a été édité suite à votre don. Vous le trouverez en pièce jointe de cet email.
+
+N'hésitez pas à consulter notre site internet happiworld.org afin de suivre nos actions !
+
+L'équipe Happi :)
+
+[Facebook https://www.facebook.com/happi.lightsonsenegal/]
+[Instagram https://www.instagram.com/happi_lightsonsenegal/?hl=fr]
