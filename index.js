@@ -10,20 +10,28 @@ const nodemailer = require('nodemailer')
 const path = require('path')
 
 const {
-  PRODUCTION,
-  CORS_WHITELIST,
-  EMAIL_TRANSPORTER,
+  // CORS_WHITELIST,
+  EMAIL_TRANSPORTER_SERVICE,
+  EMAIL_TRANSPORTER_AUTH_PASS,
+  EMAIL_TRANSPORTER_AUTH_USER,
   GRAPHCMS_ENDPOINT,
   GRAPHCMS_TOKEN,
-  PAYMENT_STRIPE_URI,
+  API_PAYMENT_STRIPE_URI,
   PAYMENT_STRIPE_ECHO_URI,
-  SERVER_BASE_URI,
   SERVER_PORT,
   STRIPE_SECRET_KEY,
-} = require('./constants')
+} = require('./config.server')
 
 const EMAIL_PAIEMENT_MODEL_HTML = fs.readFileSync(__dirname + '/src/email-paiement.mjml', 'utf-8')
 const EMAIL_PAIEMENT_MODEL_TEXT = fs.readFileSync(__dirname + '/src/email-paiement.txt', 'utf-8')
+
+const EMAIL_TRANSPORTER = {
+  service: EMAIL_TRANSPORTER_SERVICE,
+  auth: {
+    user: EMAIL_TRANSPORTER_AUTH_USER,
+    pass: EMAIL_TRANSPORTER_AUTH_PASS
+  }
+}
 
 function createPaiementEmail(paiement) {
   const replacePlaceholders = text => text
@@ -139,7 +147,7 @@ app.use(express.static(__dirname + '/public'))
 
 app.use(bodyParser.json())
 
-app.post(PAYMENT_STRIPE_URI, corsMiddleware, (req, res) => {
+app.post(API_PAYMENT_STRIPE_URI, corsMiddleware, (req, res) => {
   const { produit, token } = req.body
 
   const charge = {
@@ -149,13 +157,13 @@ app.post(PAYMENT_STRIPE_URI, corsMiddleware, (req, res) => {
     source: token.id,
   }
 
-  console.info('POST', PAYMENT_STRIPE_URI, token.id, '--', 'request', produit.montant, produit.devise, produit.description)
+  console.info('POST', API_PAYMENT_STRIPE_URI, token.id, '--', 'request', produit.montant, produit.devise, produit.description)
 
   stripe.charges.create(charge, (stripeErr, stripeRes) => {
     const resStatus = stripeErr ? 500 : 200
     const resBody = stripeErr ? { error: stripeErr } : { success: stripeRes }
 
-    console.info('POST', PAYMENT_STRIPE_URI, token.id, '--', stripeErr ? 'KO' : 'ok', 'numOrdre', stripeErr || stripeRes.id)
+    console.info('POST', API_PAYMENT_STRIPE_URI, token.id, '--', stripeErr ? 'KO' : 'ok', 'numOrdre', stripeErr || stripeRes.id)
 
     res
       .status(resStatus)
@@ -192,7 +200,7 @@ app.post(PAYMENT_STRIPE_URI, corsMiddleware, (req, res) => {
         }
       })
         .then(({ data }) => {
-          console.info('POST', PAYMENT_STRIPE_URI, token.id, '--', 'registered')
+          console.info('POST', API_PAYMENT_STRIPE_URI, token.id, '--', 'registered')
 
           const {
             email,
@@ -225,10 +233,10 @@ app.post(PAYMENT_STRIPE_URI, corsMiddleware, (req, res) => {
           })
         })
         .then(({ info }) => {
-          console.info('POST', PAYMENT_STRIPE_URI, token.id, '--', 'email sent', info.messageId)
+          console.info('POST', API_PAYMENT_STRIPE_URI, token.id, '--', 'email sent', info.messageId)
         })
         .catch(err => {
-          console.error('POST', PAYMENT_STRIPE_URI, token.id, '--', 'ERROR')
+          console.error('POST', API_PAYMENT_STRIPE_URI, token.id, '--', 'ERROR', err)
         })
     }
   })
@@ -239,5 +247,5 @@ app.listen(SERVER_PORT, error => {
     throw error
   }
 
-  console.info('Server running on', SERVER_BASE_URI)
+  console.info('Server running on port', SERVER_PORT)
 })

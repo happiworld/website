@@ -3,9 +3,9 @@ import StripeCheckout from 'react-stripe-checkout'
 import axios from 'axios'
 
 import {
-  PAYMENT_STRIPE_URI,
+  API_PAYMENT_STRIPE_URI,
   STRIPE_PUBLIC_KEY,
-} from '../../constants'
+} from '../../config.browser'
 
 class Produit extends React.Component {
   constructor(props) {
@@ -36,7 +36,7 @@ class Produit extends React.Component {
   onToken(token) {
     const { produit } = this.props
 
-    axios.post(PAYMENT_STRIPE_URI, { produit, token })
+    axios.post(API_PAYMENT_STRIPE_URI, { produit, token })
       .then(data => {
         if (data.error) {
           throw new Error(data.error)
@@ -47,7 +47,7 @@ class Produit extends React.Component {
         this.setState({ paymentSucess: data })
       })
       .catch(err => {
-        console.error(PAYMENT_STRIPE_URI, 'ERROR', err)
+        console.error(API_PAYMENT_STRIPE_URI, 'ERROR', err)
 
         this.setState({ paymentError: err })
       })

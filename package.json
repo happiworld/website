@@ -4,6 +4,8 @@
   "description": "Happi Website",
   "main": "index.js",
   "scripts": {
+    "config:browser": "./scripts/create-config.js browser",
+    "config:server": "./scripts/create-config.js server",
     "front:build": "npx gatsby build",
     "front:develop": "npx gatsby develop",
     "format": "npx prettier --write 'src/**/*.js'",

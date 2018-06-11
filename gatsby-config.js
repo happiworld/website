@@ -1,6 +1,8 @@
-const CONSTANTS = require('./constants')
-
-Object.keys(CONSTANTS).forEach(key => (process.env[key] = CONSTANTS[key]))
+const {
+  GRAPHCMS_ENDPOINT,
+  GRAPHCMS_TOKEN,
+  TRACKING_ID
+} = require('./config.server')
 
 module.exports = {
   siteMetadata: {
@@ -11,15 +13,15 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: 'UA-120636712-1',
+        trackingId: TRACKING_ID,
         head: false
       }
     },
     {
       resolve: 'gatsby-source-graphcms',
       options: {
-        endpoint: process.env.GRAPHCMS_ENDPOINT,
-        token: process.env.GRAPHCMS_TOKEN,
+        endpoint: GRAPHCMS_ENDPOINT,
+        token: GRAPHCMS_TOKEN,
         query: `{
           allFamilleEclairees {
             id

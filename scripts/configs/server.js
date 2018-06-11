@@ -1,0 +1,8 @@
+module.exports = {
+  EMAIL_TRANSPORTER_SERVICE: 'gmail',
+  EMAIL_TRANSPORTER_AUTH_USER: 'inahappiworld',
+  EMAIL_TRANSPORTER_AUTH_PASS: null,
+  GRAPHCMS_ENDPOINT: null,
+  GRAPHCMS_TOKEN: null,
+  STRIPE_SECRET_KEY: null
+}
