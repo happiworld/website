@@ -1,12 +1,17 @@
+const pkg = require('./package.json')
+
 const {
   GRAPHCMS_ENDPOINT,
   GRAPHCMS_TOKEN,
   TRACKING_ID
 } = require('./config.server')
 
+
 module.exports = {
   siteMetadata: {
-    title: 'Happi'
+    title: 'Happi',
+    description: pkg.description,
+    keywords: pkg.keywords.join(', ')
   },
   plugins: [
     'gatsby-plugin-react-helmet',

@@ -7,7 +7,7 @@ import Footer from '../components/footer';
 
 import './index.css'
 
-const Layout = ({ children, siteTitle }) => (
+const Layout = ({ children, data }) => (
   <main
     style={{
       margin: '0 auto',
@@ -16,13 +16,13 @@ const Layout = ({ children, siteTitle }) => (
     }}
   >
     <Helmet
-      title={siteTitle}
+      title={data.site.siteMetadata.title}
       meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
+        { name: 'description', content: data.site.siteMetadata.description },
+        { name: 'keywords', content: data.site.siteMetadata.keywords },
       ]}
     />
-    <Header siteTitle={siteTitle} />
+    <Header siteTitle={data.site.siteMetadata.title} />
     <div>
       {children()}
     </div>
@@ -41,6 +41,8 @@ export const query = graphql`
     site {
       siteMetadata {
         title
+        description
+        keywords
       }
     }
   }
