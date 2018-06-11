@@ -67,14 +67,19 @@ class Produit extends React.Component {
   
     return (
       <div>
-        <h2>{produit.nom}</h2>
+        <h3>{produit.nom}</h3>
         <p>{produit.description}</p>
-        <pre>{JSON.stringify(produit)}</pre>
         {paymentError && (
-          JSON.stringify(paymentError)
+          <div>
+            <p>Une erreur est survenue.</p>
+            <p>Vous pouvez réessayer plus tard.</p>
+          </div>
         )}
         {paymentSucess && (
-          JSON.stringify(paymentSucess)
+          <div>
+            <p>Merci {paymentSucess.data.success.source.name} pour votre soutien !,</p>
+            <p>Vous recevrez dans quelques minutes un email de confirmation du paiement.</p>
+          </div>
         )}
         {!paymentError && !paymentSucess && (
           <StripeCheckout

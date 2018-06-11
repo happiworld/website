@@ -3,7 +3,7 @@ import Produit from '../components/produit'
 
 const PageParrainerUneFamille = ({ data }) => (
   <div>
-    <h1>Parrainer une famille</h1>
+    <h2>Parrainer une famille</h2>
     {data.allProduits.edges.map(({ node }) => (
       <Produit key={node.id} produit={node} />
     ))}
