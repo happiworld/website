@@ -5,8 +5,6 @@ import Helmet from 'react-helmet'
 import Header from '../components/header'
 import Footer from '../components/footer';
 
-// import './index.css'
-
 import '../balita/css/bootstrap.css'
 import '../balita/css/animate.css'
 // import '../balita/css/owl.carousel.min.css'
@@ -14,6 +12,8 @@ import '../balita/fonts/ionicons/css/ionicons.min.css'
 import '../balita/fonts/fontawesome/css/font-awesome.min.css'
 import '../balita/fonts/flaticon/font/flaticon.css'
 import '../balita/css/style.css'
+
+import './index.css'
 
 const Layout = ({ children, data }) => (
   <main
@@ -32,7 +32,7 @@ const Layout = ({ children, data }) => (
     />
     <Header siteTitle={data.site.siteMetadata.title} />
     <section className="site-section pt-5">
-      <div class="container">
+      <div class="container main-content">
         {children()}
       </div>
     </section>

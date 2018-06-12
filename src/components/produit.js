@@ -64,11 +64,49 @@ class Produit extends React.Component {
   render() {
     const { produit } = this.props
     const { paymentError, paymentSucess } = this.state
+
+    const reductionImpots = parseFloat(produit.montant * 0.66).toFixed(2)
   
     return (
       <div>
         <h3>{produit.nom}</h3>
         <p>{produit.description}</p>
+        {!paymentError && !paymentSucess && (
+          <div>
+            {!produit.photo ? '' : (
+              <p className="center">
+                <img src={produit.photo.url} alt={`Photo ${produit.nom}`} />
+              </p>
+            )}
+            <p className="pt-4 pb-4 center">
+              <StripeCheckout
+                name={produit.nom}
+                description={`${produit.montant} ${produit.devise}`}
+                image={produit.photo.url}
+                ComponentClass="div"
+                panelLabel="Payer"
+                amount={produit.montant * 100}
+                currency={produit.devise}
+                stripeKey={STRIPE_PUBLIC_KEY}
+                locale="fr"
+                billingAddress={true}
+                zipCode={true}
+                allowRememberMe={false}
+                token={this.onToken}
+                opened={this.onOpened}
+                closed={this.onClosed}
+              >
+                <button className="primary-btn">Faire un don de <strong>{produit.montant}&nbsp;{produit.devise}</strong></button>
+              </StripeCheckout>
+              <span>
+                <a href="https://www.impots.gouv.fr/portail/particulier/questions/jai-fait-des-dons-une-association-que-puis-je-deduire">Réduction d'impôt</a> de {reductionImpots}&nbsp;{produit.devise}
+              </span>
+            </p>
+            {!produit.details ? '' : produit.details.split('\n').map((detail, key) => (
+              <p key={key}>{detail}</p>
+            ))}
+          </div>
+        )}
         {paymentError && (
           <div>
             <p>Une erreur est survenue.</p>
@@ -80,27 +118,6 @@ class Produit extends React.Component {
             <p>Merci {paymentSucess.data.success.source.name} pour votre soutien !,</p>
             <p>Vous recevrez dans quelques minutes un email de confirmation du paiement.</p>
           </div>
-        )}
-        {!paymentError && !paymentSucess && (
-          <StripeCheckout
-            name={produit.nom}
-            description={`${produit.montant} ${produit.devise}`}
-            image={produit.photo.url}
-            ComponentClass="div"
-            panelLabel="Payer"
-            amount={produit.montant * 100}
-            currency={produit.devise}
-            stripeKey={STRIPE_PUBLIC_KEY}
-            locale="fr"
-            billingAddress={true}
-            zipCode={true}
-            allowRememberMe={false}
-            token={this.onToken}
-            opened={this.onOpened}
-            closed={this.onClosed}
-          >
-            <button>Bouton de paiement</button>
-          </StripeCheckout>
         )}
       </div>
     )

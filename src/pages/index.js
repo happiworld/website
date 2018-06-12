@@ -13,10 +13,10 @@ const PageHome = ({ data }) => (
       Dans un deuxième temps, selon votre générosité, nous équiperons un maximum de familles de kits solaires, afin qu’ils puissent cuisiner, étudier, communiquer, lorsque la nuit est tombée ; et suivre les aventures de l’Equipe Nationale lors de la prochaine Coupe du Monde !
     </p>
     <p>
-      Le principe est très simple, nous vous proposons de parrainer une famille qui souhaite recevoir un kit solaire. L’impact de votre don est sans intermédiaires et quasi immédiat suivant 5 étapes :
+      Le principe est très simple, nous vous proposons de parrainer une famille qui souhaite recevoir un kit solaire. L’impact de votre don est sans intermédiaires et quasi immédiat.
     </p>
-    <p>
-      <Link to="/parrainer-une-famille">Je parraine une famille</Link>
+    <p className="pt-4 pb-4 center">
+      <Link to="/parrainer-une-famille" className="primary-btn">Je parraine une famille</Link>
     </p>
     <p>
       {data.allFamilleEclairees.edges.map(({ node }, key) => (

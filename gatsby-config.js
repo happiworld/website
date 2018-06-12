@@ -66,6 +66,7 @@ module.exports = {
             montant
             devise
             description
+            details
             photo {
               handle
               url

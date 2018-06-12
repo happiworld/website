@@ -1,3 +1,4 @@
+/*
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -621,4 +622,80 @@ pre tt:after {
   html {
     font-size: 100%;
   }
+}
+*/
+
+
+main h2:first-child {
+  display: none;
+}
+
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
+  color: #ffc602;
+}
+
+@media only print {
+  main h2:first-child {
+    display: block;
+  }
+
+  main h1,
+  main h2,
+  main h3,
+  main h4,
+  main h5,
+  main h6 {
+    color: #000;
+  }
+}
+
+.site-header, .site-header *, header {
+  background: no-repeat center center;
+}
+
+.site-header h1 img {
+  width: 100%;
+  max-width: 360px;
+  margin: auto;
+}
+
+.notre-projet iframe {
+  display: block;
+  margin: 1em auto;
+  width: 100%;
+  max-width: 560px;
+}
+
+.site-footer {
+  background: #ffc602;
+}
+
+
+.primary-btn {
+  background: #ffc602;
+  border: none;
+  padding: 0.5em 1em;
+  font-size: 1.4em;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 1em;
+  cursor: pointer;
+}
+
+.primary-btn:hover {
+  background: #ffcf52;
+  color: #fff;
+}
+
+.center {
+  text-align: center;
+}
+
+.w50 {
+  width: 50%;
 }

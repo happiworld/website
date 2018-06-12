@@ -1,40 +1,18 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
-const Header = ({ siteTitle }) => (
-  // <header>
-  //   <h1>
-  //     <Link to="/">{siteTitle}</Link>
-  //   </h1>
-  //   <nav>
-  //     <Link to="/">Home</Link>
-  //     <Link to="/notre-projet">Notre projet</Link>
-  //     <Link to="/qui-sommes-nous">Qui sommes nous</Link>
-  //     <Link to="/parrainer-une-famille">Parrainger une famille</Link>
-  //   </nav>
-  // </header>
-  <header role="banner">
-    {/* <div className="top-bar">
-      <div className="container">
-        <div className="row">
-          <div className="col-9 social">
-            <a href="#"><span className="fa fa-twitter"></span></a>
-            <a href="#"><span className="fa fa-facebook"></span></a>
-            <a href="#"><span className="fa fa-instagram"></span></a>
-            <a href="#"><span className="fa fa-youtube-play"></span></a>
-            <a href="#"><span className="fa fa-vimeo"></span></a>
-            <a href="#"><span className="fa fa-snapchat"></span></a>
-          </div>
-        </div>
-      </div>
-    </div> */}
+import HappiLogo from '../assets/images/happi-logo.png'
 
+const Header = ({ siteTitle }) => (
+  <header className="site-header" role="banner">
     <div className="container logo-wrap">
       <div className="row pt-5">
         <div className="col-12 text-center">
           <a className="absolute-toggle d-block d-md-none" data-toggle="collapse" href="#navbarMenu" role="button" aria-expanded="false" aria-controls="navbarMenu"><span className="burger-lines"></span></a>
           <h1 className="site-logo">
-            <Link to="/">{siteTitle}</Link>
+            <Link to="/">
+              <img alt={siteTitle} src={HappiLogo} />
+            </Link>
           </h1>
           
         </div>
@@ -56,7 +34,7 @@ const Header = ({ siteTitle }) => (
               <Link to="/qui-sommes-nous" className="nav-link" activeClassName="active">Qui sommes nous</Link>
             </li>
             <li className="nav-item">
-              <Link to="/parrainer-une-famille" className="nav-link" activeClassName="active">Parrainger une famille</Link>
+              <Link to="/parrainer-une-famille" className="nav-link" activeClassName="active">Parrainer une famille</Link>
             </li>
           </ul>
         </div>

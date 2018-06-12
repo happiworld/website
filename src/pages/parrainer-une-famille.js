@@ -22,6 +22,7 @@ export const query = graphql`
           montant
           devise
           description
+          details
           photo {
             handle
             url
