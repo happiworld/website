@@ -52,7 +52,8 @@ header .navbar {
 
 @media (max-width: 767.98px) {
   header .navbar {
-    background: #e6e6e6 !important;
+    /* background: #e6e6e6 !important; */
+    text-align: center;
   }
 }
 

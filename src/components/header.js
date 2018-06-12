@@ -8,13 +8,11 @@ const Header = ({ siteTitle }) => (
     <div className="container logo-wrap">
       <div className="row pt-5">
         <div className="col-12 text-center">
-          <a className="absolute-toggle d-block d-md-none" data-toggle="collapse" href="#navbarMenu" role="button" aria-expanded="false" aria-controls="navbarMenu"><span className="burger-lines"></span></a>
           <h1 className="site-logo">
             <Link to="/">
               <img alt={siteTitle} src={HappiLogo} />
             </Link>
           </h1>
-          
         </div>
       </div>
     </div>
@@ -22,7 +20,7 @@ const Header = ({ siteTitle }) => (
     projet-phase-2 */}
     <nav className="navbar navbar-expand-md  navbar-light bg-light">
       <div className="container">
-        <div className="collapse navbar-collapse" id="navbarMenu">
+        <div className="navbar-collapse" id="navbarMenu">
           <ul className="navbar-nav mx-auto">
             <li className="nav-item">
               <Link exact to="/" className="nav-link" activeClassName="active">Home</Link>
