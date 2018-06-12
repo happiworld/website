@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
-const PageQuiSommesNous = () => (
+const PageQuiSommesNous = ({ data }) => (
   <div>
     <h2>Qui sommes nous</h2>
     <h3>Notre histoire</h3>
@@ -53,10 +53,32 @@ const PageQuiSommesNous = () => (
     <p>
       L’Equipe de l’association HAPPi est composée de profils diversifies. Certains travaillent dans la communication, d’autres dans l’humanitaire, l’informatique, l’énergie ou encore la gestion. Ce mélange de compétences est d’une grande utilité pour les projets menés. Il offre une complémentarité sur les différents aspects a aborder dans la mise en place de nos actions, et permet à l’équipe de prendre du recul sur ses décisions.
     </p>
-    <p>
-      &lt;Ici en dessous du paragraphe on mettera les photos des membres de l'équipe /&gt;
+    <p className="row">
+      {data.allStaffs.edges.map(({ node }) => (
+        <div className="col-md-4 photo-card">
+          <img src={node.photo.url} alt={`Photo de ${node.nom}`}  /> {node.nom}
+        </div>
+      ))}
     </p>
   </div>
 )
 
 export default PageQuiSommesNous
+
+export const query = graphql`
+  query GetStaffs {
+    allStaffs {
+      edges {
+        node {
+          id
+          nom
+          role
+          photo {
+            handle
+            url
+          }
+        }
+      }
+    }
+  }
+`

@@ -72,6 +72,15 @@ module.exports = {
               url
             }
           }
+          allStaffs {
+            id
+            nom
+            role
+            photo {
+              handle
+              url
+            }
+          }
         }`
       }
     }
