@@ -3,30 +3,41 @@ import Link from 'gatsby-link'
 
 import FamilleImage from '../components/famille-image'
 
-const PageHome = ({ data }) => (
-  <div className="main-content">
-    <h2 className="mb-4">Home</h2>
-    <p>
-      L’association HAPPi a pour objectif de mener des campagnes d’électrification transparentes à l’occasion d’évènements sportifs internationaux. La Coupe du Monde FIFA 2018 se déroule du 14 juin au 15 juillet en Russie. A cette occasion, nous souhaitons rendre visite à nos amis du Sénégal, l’une des cinq nations qui représentera le continent Africain lors de la compétition. Les habitants de la région de Casamance, a l’extrême sud du pays, n’ont pas la chance d’avoir accès a l’électricité. Nous les rejoindrons, équipes d’un vidéoprojecteur, pour qu’ils puissent vivre ce moment de liesse, comme vous !
-    </p>
-    <p>
-      Dans un deuxième temps, selon votre générosité, nous équiperons un maximum de familles de kits solaires, afin qu’ils puissent cuisiner, étudier, communiquer, lorsque la nuit est tombée ; et suivre les aventures de l’Equipe Nationale lors de la prochaine Coupe du Monde !
-    </p>
-    <p>
-      Le principe est très simple, nous vous proposons de parrainer une famille qui souhaite recevoir un kit solaire. L’impact de votre don est sans intermédiaires et quasi immédiat.
-    </p>
-    <p className="pt-4 pb-4 center">
-      <Link to="/parrainer-une-famille" className="primary-btn">Je parraine une famille</Link>
-    </p>
-    <p className="row">
-      {data.allFamilleEclairees.edges.map(({ node }, key) => (
-        <div className="col-4 photo-card">
-          <FamilleImage key={key} {...node} />
+const PageHome = ({ data }) => {
+  const photoStack = data.allFamilleEclairees.edges.map(({ node }) => node)
+  const photoLines = []
+
+  while (photoStack.length > 0) {
+    photoLines.push(photoStack.splice(0, 3))
+  }
+
+  return (
+    <div className="main-content">
+      <h2 className="mb-4">Home</h2>
+      <p>
+        L’association HAPPi a pour objectif de mener des campagnes d’électrification transparentes à l’occasion d’évènements sportifs internationaux. La Coupe du Monde FIFA 2018 se déroule du 14 juin au 15 juillet en Russie. A cette occasion, nous souhaitons rendre visite à nos amis du Sénégal, l’une des cinq nations qui représentera le continent Africain lors de la compétition. Les habitants de la région de Casamance, a l’extrême sud du pays, n’ont pas la chance d’avoir accès a l’électricité. Nous les rejoindrons, équipes d’un vidéoprojecteur, pour qu’ils puissent vivre ce moment de liesse, comme vous !
+      </p>
+      <p>
+        Dans un deuxième temps, selon votre générosité, nous équiperons un maximum de familles de kits solaires, afin qu’ils puissent cuisiner, étudier, communiquer, lorsque la nuit est tombée ; et suivre les aventures de l’Equipe Nationale lors de la prochaine Coupe du Monde !
+      </p>
+      <p>
+        Le principe est très simple, nous vous proposons de parrainer une famille qui souhaite recevoir un kit solaire. L’impact de votre don est sans intermédiaires et quasi immédiat.
+      </p>
+      <p className="pt-4 pb-4 center">
+        <Link to="/parrainer-une-famille" className="primary-btn">Je parraine une famille</Link>
+      </p>
+      {photoLines.map((photoLine, lineKey) => (
+        <div key={lineKey} className="row">
+          {photoLine.map((node, key) => (
+            <div className="col-4 photo-card">
+              <FamilleImage key={key} {...node} />
+            </div>
+          ))}
         </div>
       ))}
-    </p>
-  </div>
-)
+    </div>
+  )
+}
 
 export default PageHome
 
