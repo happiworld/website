@@ -20,7 +20,7 @@ const PageHome = ({ data }) => (
     </p>
     <p className="row">
       {data.allFamilleEclairees.edges.map(({ node }, key) => (
-        <div className="col-md-4 photo-card">
+        <div className="col-4 photo-card">
           <FamilleImage key={key} {...node} />
         </div>
       ))}

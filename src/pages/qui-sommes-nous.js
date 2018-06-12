@@ -55,7 +55,7 @@ const PageQuiSommesNous = ({ data }) => (
     </p>
     <p className="row">
       {data.allStaffs.edges.map(({ node }) => (
-        <div className="col-md-4 photo-card">
+        <div className="col-4 photo-card">
           <img src={node.photo.url} alt={`Photo de ${node.nom}`}  /> {node.nom}
         </div>
       ))}
