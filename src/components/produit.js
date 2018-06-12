@@ -78,7 +78,7 @@ class Produit extends React.Component {
                 <img src={produit.photo.url} alt={`Photo ${produit.nom}`} />
               </p>
             )}
-            <p className="pt-4 pb-4 center">
+            <div className="center pb-4">
               <StripeCheckout
                 name={produit.nom}
                 description={`${produit.montant} ${produit.devise}`}
@@ -101,7 +101,7 @@ class Produit extends React.Component {
               <span>
                 <a href="https://www.impots.gouv.fr/portail/particulier/questions/jai-fait-des-dons-une-association-que-puis-je-deduire">Réduction d'impôt</a> de {reductionImpots}&nbsp;{produit.devise}
               </span>
-            </p>
+            </div>
             {!produit.details ? '' : produit.details.split('\n').map((detail, key) => (
               <p key={key}>{detail}</p>
             ))}
