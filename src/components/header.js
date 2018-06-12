@@ -34,7 +34,9 @@ const Header = ({ siteTitle }) => (
               <Link to="/qui-sommes-nous" className="nav-link" activeClassName="active">Qui sommes nous</Link>
             </li>
             <li className="nav-item">
-              <Link to="/parrainer-une-famille" className="nav-link" activeClassName="active">Parrainer une famille</Link>
+              <span className="nav-link">
+                <Link to="/parrainer-une-famille" className="primary-btn" activeClassName="active">Parrainer une famille</Link>
+              </span>
             </li>
           </ul>
         </div>

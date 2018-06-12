@@ -68,9 +68,8 @@ class Produit extends React.Component {
     const reductionImpots = parseFloat(produit.montant * 0.66).toFixed(2)
   
     return (
-      <div>
-        <h3>{produit.nom}</h3>
-        <p>{produit.description}</p>
+      <div className="product-card">
+        <h3>{produit.nom} {produit.description}</h3>
         {!paymentError && !paymentSucess && (
           <div>
             {!produit.photo ? '' : (
@@ -99,7 +98,7 @@ class Produit extends React.Component {
                 <button className="primary-btn">Faire un don de <strong>{produit.montant}&nbsp;{produit.devise}</strong></button>
               </StripeCheckout>
               <span>
-                <a href="https://www.impots.gouv.fr/portail/particulier/questions/jai-fait-des-dons-une-association-que-puis-je-deduire">Réduction d'impôt</a> de {reductionImpots}&nbsp;{produit.devise}
+                <a href="https://www.impots.gouv.fr/portail/particulier/questions/jai-fait-des-dons-une-association-que-puis-je-deduire" target="_blank">Réduction d'impôt</a> de {reductionImpots}&nbsp;{produit.devise}
               </span>
             </div>
             {!produit.details ? '' : produit.details.split('\n').map((detail, key) => (

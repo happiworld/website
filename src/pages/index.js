@@ -18,9 +18,11 @@ const PageHome = ({ data }) => (
     <p className="pt-4 pb-4 center">
       <Link to="/parrainer-une-famille" className="primary-btn">Je parraine une famille</Link>
     </p>
-    <p>
+    <p className="row">
       {data.allFamilleEclairees.edges.map(({ node }, key) => (
-        <FamilleImage key={key} {...node} />
+        <div className="col-md-4 photo-card">
+          <FamilleImage key={key} {...node} />
+        </div>
       ))}
     </p>
   </div>
