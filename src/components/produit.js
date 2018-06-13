@@ -40,7 +40,11 @@ class Produit extends React.Component {
   onToken(token) {
     const { produit } = this.props
 
-    axios.post(PAYMENT_URL, { produit, token })
+    axios.post(PAYMENT_URL, { produit, token }, {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      }
+    })
       .then(data => {
         if (data.error) {
           throw new Error(data.error)
