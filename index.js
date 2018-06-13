@@ -37,7 +37,7 @@ function createPaiementEmail(paiement) {
   const recu = createPaiementPdf(paiement)
   recu.end()
   return {
-    from: '"Happi" <inahappiworld@gmail.com>',
+    from: '"Happi" <noreply@happiworld.org>',
     to: `"${paiement.nom}" <${paiement.email}>`,
     subject: 'Votre reçu fiscal',
     text: replacePlaceholders(EMAIL_PAIEMENT_MODEL_TEXT),
