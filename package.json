@@ -6,9 +6,9 @@
   "scripts": {
     "config:browser": "./scripts/create-config.js browser",
     "config:server": "./scripts/create-config.js server",
-    "front:build": "npx gatsby build",
-    "front:develop": "npx gatsby develop",
-    "format": "npx prettier --write 'src/**/*.js'",
+    "front:build": "gatsby build",
+    "front:develop": "gatsby develop",
+    "format": "prettier --write 'src/**/*.js'",
     "now-build": "npm run front:build",
     "now-start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
