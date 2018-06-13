@@ -8,6 +8,8 @@ const [
   envName = process.env.NODE_ENV || 'development'
 ] = process.argv.slice(2)
 
+const PRODUCTION = envName === 'production'
+
 console.info('create', target, envName, 'config into', `config.${target}.js`)
 
 const configNames = [
@@ -21,7 +23,7 @@ const config = configNames
   .map(configName => `${__dirname}/configs/${configName}.js`)
   .filter(configPath => fs.existsSync(configPath))
   .map(configPath => require(configPath))
-  .reduce((acc, config) => Object.assign(acc, config), {})
+  .reduce((acc, config) => Object.assign(acc, config), { PRODUCTION })
 
 fs.writeFileSync(
   `${__dirname}/../config.${target}.js`,
