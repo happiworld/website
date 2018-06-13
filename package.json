@@ -6,6 +6,7 @@
   "scripts": {
     "config:browser": "./scripts/create-config.js browser",
     "config:server": "./scripts/create-config.js server",
+    "config:prod": "NODE_ENV=production npm run config:browser && npm run config:server",
     "front:build": "gatsby build",
     "front:develop": "gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
