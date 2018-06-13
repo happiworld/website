@@ -78,7 +78,6 @@ class Produit extends React.Component {
     return (
       <div className="product-card">
         <h3>{produit.nom} {produit.description}</h3>
-        <p>{PAYMENT_URL}</p>
         {!paymentError && !paymentSucess && (
           <div>
             {!produit.photo ? '' : (
