@@ -56,7 +56,7 @@ header .navbar {
     text-align: center;
   }
 }
-
+/*
 header .navbar .navbar-nav.absolute-right {
   position: absolute;
   right: 0;
@@ -68,7 +68,7 @@ header .navbar .navbar-nav.absolute-right {
     right: inherit;
   }
 }
-
+*/
 header .navbar .nav-link {
   padding: 1.7rem 1rem;
   font-size: 13px;
@@ -132,7 +132,7 @@ header .navbar .dropdown-menu a {
   padding-top: 7px;
   padding-bottom: 7px;
 }
-
+/*
 .absolute-toggle {
   position: absolute;
   left: 15px;
@@ -163,7 +163,7 @@ header .navbar .dropdown-menu a {
 .absolute-toggle .burger-lines:after {
   bottom: -10px;
 }
-
+*/
 .site-logo a {
   color: #000;
   font-size: 90px;
@@ -174,7 +174,7 @@ header .navbar .dropdown-menu a {
     font-size: 40px;
   }
 }
-
+/*
 .top-bar {
   background: #000;
   padding: 10px 0;
@@ -420,7 +420,7 @@ header .navbar .dropdown-menu a {
   min-height: 550px;
   height: 50vh;
 }
-
+*/
 .site-section {
   padding: 7em 0;
 }
@@ -432,7 +432,7 @@ header .navbar .dropdown-menu a {
 .site-section.py-sm {
   padding: 0em 0;
 }
-
+/*
 .school-features,
 .school-instructors {
   background-size: cover;
@@ -605,6 +605,7 @@ header .navbar .dropdown-menu a {
   margin-left: 0;
   color: #007bff;
 }
+*/
 
 .img-bg {
   background-size: cover;
@@ -615,7 +616,6 @@ header .navbar .dropdown-menu a {
     max-width: 100%;
   }
 }
-
 .section-cover {
   background-size: cover;
   position: relative;
@@ -633,7 +633,7 @@ header .navbar .dropdown-menu a {
 .section-cover h2 {
   color: #fff;
 }
-
+/*
 .blog-entries .blog-entry {
   display: block;
   -webkit-transition: .3s all ease;
@@ -675,7 +675,7 @@ header .navbar .dropdown-menu a {
   margin-bottom: 10px;
   color: #999999 !important;
 }
-
+*/
 .btn, .form-control {
   outline: none;
   -webkit-box-shadow: none !important;
@@ -759,7 +759,7 @@ textarea.form-control {
 .no-nav .owl-nav {
   display: none;
 }
-
+/*
 .owl-carousel .owl-item {
   opacity: .4;
 }
@@ -1634,7 +1634,7 @@ textarea.form-control {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-
+*/
 blockquote {
   padding-left: 30px;
   border-left: 10px solid #e6e6e6;
@@ -1660,7 +1660,7 @@ blockquote p {
   content: "\f122";
   position: absolute;
 }
-
+/*
 #modalAppointment .modal-content {
   border-radius: 0;
   border: none;
@@ -1669,7 +1669,7 @@ blockquote p {
 #modalAppointment .modal-body, #modalAppointment .modal-footer {
   padding: 40px;
 }
-
+*/
 .overflow {
   position: relative;
   overflow-x: hidden;
@@ -1715,12 +1715,12 @@ blockquote p {
 .site-footer p {
   color: rgba(255, 255, 255, 0.5);
 }
-
+/*
 .blog-entry-footer .post-meta {
   color: white;
   font-size: 15px;
 }
-
+*/
 .border-t {
   border-top: 1px solid #f8f9fa;
 }
@@ -1733,7 +1733,7 @@ blockquote p {
   opacity: 0;
   visibility: hidden;
 }
-
+/*
 #loader {
   position: fixed;
   width: 96px;
@@ -1841,3 +1841,4 @@ blockquote p {
     stroke-dashoffset: -136px;
   }
 }
+*/
