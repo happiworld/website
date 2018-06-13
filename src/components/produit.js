@@ -4,9 +4,12 @@ import axios from 'axios'
 
 import {
   BASE_URL,
+  SERVER_PORT,
   API_PAYMENT_STRIPE_URI,
   STRIPE_PUBLIC_KEY,
 } from '../../config.browser'
+
+const PAYMENT_URL = BASE_URL + ':' + SERVER_PORT + API_PAYMENT_STRIPE_URI
 
 class Produit extends React.Component {
   constructor(props) {
@@ -37,7 +40,7 @@ class Produit extends React.Component {
   onToken(token) {
     const { produit } = this.props
 
-    axios.post(BASE_URL + ':' + SERVER_PORT + API_PAYMENT_STRIPE_URI, { produit, token })
+    axios.post(PAYMENT_URL, { produit, token })
       .then(data => {
         if (data.error) {
           throw new Error(data.error)
@@ -71,6 +74,7 @@ class Produit extends React.Component {
     return (
       <div className="product-card">
         <h3>{produit.nom} {produit.description}</h3>
+        <p>{PAYMENT_URL}</p>
         {!paymentError && !paymentSucess && (
           <div>
             {!produit.photo ? '' : (
