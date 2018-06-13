@@ -11,9 +11,7 @@ const path = require('path')
 
 const {
   // CORS_WHITELIST,
-  EMAIL_TRANSPORTER_SERVICE,
-  EMAIL_TRANSPORTER_AUTH_PASS,
-  EMAIL_TRANSPORTER_AUTH_USER,
+  EMAIL_TRANSPORTER,
   GRAPHCMS_ENDPOINT,
   GRAPHCMS_TOKEN,
   API_PAYMENT_STRIPE_URI,
@@ -24,14 +22,6 @@ const {
 
 const EMAIL_PAIEMENT_MODEL_HTML = fs.readFileSync(__dirname + '/src/email-paiement.mjml', 'utf-8')
 const EMAIL_PAIEMENT_MODEL_TEXT = fs.readFileSync(__dirname + '/src/email-paiement.txt', 'utf-8')
-
-const EMAIL_TRANSPORTER = {
-  service: EMAIL_TRANSPORTER_SERVICE,
-  auth: {
-    user: EMAIL_TRANSPORTER_AUTH_USER,
-    pass: EMAIL_TRANSPORTER_AUTH_PASS
-  }
-}
 
 function createPaiementEmail(paiement) {
   const replacePlaceholders = text => text
