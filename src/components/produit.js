@@ -3,6 +3,7 @@ import StripeCheckout from 'react-stripe-checkout'
 import axios from 'axios'
 
 import {
+  BASE_URL,
   API_PAYMENT_STRIPE_URI,
   STRIPE_PUBLIC_KEY,
 } from '../../config.browser'
@@ -36,7 +37,7 @@ class Produit extends React.Component {
   onToken(token) {
     const { produit } = this.props
 
-    axios.post(API_PAYMENT_STRIPE_URI, { produit, token })
+    axios.post(BASE_URL + API_PAYMENT_STRIPE_URI, { produit, token })
       .then(data => {
         if (data.error) {
           throw new Error(data.error)
