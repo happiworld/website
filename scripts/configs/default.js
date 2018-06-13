@@ -1,5 +1,5 @@
 module.exports = {
-  BASE_URL: 'http://localhost:1337',
+  BASE_URL: 'http://localhost',
   API_PAYMENT_STRIPE_URI: '/api/payment/stripe',
   SERVER_HOST: 'localhost',
   SERVER_PORT: 1337,

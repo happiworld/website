@@ -37,7 +37,7 @@ class Produit extends React.Component {
   onToken(token) {
     const { produit } = this.props
 
-    axios.post(BASE_URL + API_PAYMENT_STRIPE_URI, { produit, token })
+    axios.post(BASE_URL + ':' + SERVER_PORT + API_PAYMENT_STRIPE_URI, { produit, token })
       .then(data => {
         if (data.error) {
           throw new Error(data.error)
