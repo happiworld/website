@@ -10,7 +10,7 @@
     "front:build": "gatsby build",
     "front:develop": "gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
-    "deploy": "npm run config:prod && npm run front:build && cp -R ./public/* ../public_html/",
+    "deploy": "npm run config:prod && npm run front:build && rm -fr ../public_html/* && cp -R ./public/* ../public_html/",
     "now-build": "npm run front:build",
     "now-start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
