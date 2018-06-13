@@ -137,17 +137,17 @@ const app = express()
 //     ? callback(null, true)
 //     : callback(new Error('Not allowed by CORS'))
 // })
-const corsMiddleware = (req, res, next) => {
+app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
   next()
-}
+})
 
 app.use(express.static(__dirname + '/public'))
 
 app.use(bodyParser.json())
 
-app.post(API_PAYMENT_STRIPE_URI, corsMiddleware, (req, res) => {
+app.post(API_PAYMENT_STRIPE_URI, (req, res) => {
   const { produit, token } = req.body
 
   const charge = {
