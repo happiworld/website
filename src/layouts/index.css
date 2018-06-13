@@ -711,6 +711,10 @@ main h6 {
   display: none;
 }
 
+.product-card strong {
+  font-weight: bold;
+}
+
 @media only print {
   .product-card > h3:first-child {
     display: block;

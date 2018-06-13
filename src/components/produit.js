@@ -104,10 +104,10 @@ class Produit extends React.Component {
                 opened={this.onOpened}
                 closed={this.onClosed}
               >
-                <button className="primary-btn">Faire un don de <strong>{produit.montant}&nbsp;{produit.devise}</strong></button>
+                <button className="primary-btn">Je parraine une famille</button>
               </StripeCheckout>
               <span>
-                <a href="https://www.impots.gouv.fr/portail/particulier/questions/jai-fait-des-dons-une-association-que-puis-je-deduire" target="_blank">Réduction d'impôt</a> de {reductionImpots}&nbsp;{produit.devise}
+                Don de <strong>{produit.montant}&euro;</strong><br />(<a href="https://www.impots.gouv.fr/portail/particulier/questions/jai-fait-des-dons-une-association-que-puis-je-deduire" target="_blank">réduction d'impôt</a> de {reductionImpots}&euro;)
               </span>
             </div>
             {!produit.details ? '' : produit.details.split('\n').map((detail, key) => (
