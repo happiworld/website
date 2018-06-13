@@ -4,12 +4,7 @@ import Link from 'gatsby-link'
 import FamilleImage from '../components/famille-image'
 
 const PageHome = ({ data }) => {
-  const photoStack = data.allFamilleEclairees.edges.map(({ node }) => node)
-  const photoLines = []
-
-  while (photoStack.length > 0) {
-    photoLines.push(photoStack.splice(0, 3))
-  }
+  const photos = data.allFamilleEclairees.edges.map(({ node }) => node)
 
   return (
     <div className="main-content">
@@ -26,15 +21,11 @@ const PageHome = ({ data }) => {
       <p className="pt-4 pb-4 center">
         <Link to="/parrainer-une-famille" className="primary-btn">Je parraine une famille</Link>
       </p>
-      {photoLines.map((photoLine, lineKey) => (
-        <div key={lineKey} className="row">
-          {photoLine.map((node, key) => (
-            <div className="col-4 photo-card">
-              <FamilleImage key={key} {...node} />
-            </div>
-          ))}
-        </div>
-      ))}
+      <p>
+        {photos.map((node, key) => (
+          <FamilleImage key={key} {...node} />
+        ))}
+        </p>
     </div>
   )
 }

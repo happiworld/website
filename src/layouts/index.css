@@ -726,3 +726,7 @@ main h6 {
 .photo-card img {
   width: 100%;
 }
+
+.photo-card > span {
+  display: block;
+}

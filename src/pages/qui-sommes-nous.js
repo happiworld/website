@@ -65,7 +65,7 @@ const PageQuiSommesNous = ({ data }) => {
         <div key={lineKey} className="row">
           {photoLine.map((node, key) => (
             <div className="col-4 photo-card">
-              <img src={node.photo.url} alt={`Photo de ${node.nom}`}  /> {node.nom}
+              <img src={node.photo.url} alt={`Photo de ${node.nom}`} style={{ width: '189px', height: '270px' }}  /> <span>{node.nom}</span>
             </div>
           ))}
         </div>
