@@ -4,5 +4,6 @@ module.exports = {
   SERVER_HOST: 'localhost',
   SERVER_PORT: 1337,
   STRIPE_PUBLIC_KEY: 'pk_test_9jTlqM1HZfbF4Qfv3nk1FBLz',
+  SSL: null,
   TRACKING_ID: 'UA-120636712-1'
 }

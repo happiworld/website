@@ -5,6 +5,8 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const fs = require('fs')
 const express = require('express')
+const http = require('http')
+const https = require('https')
 const mjml = require('mjml')
 const nodemailer = require('nodemailer')
 const path = require('path')
@@ -18,6 +20,7 @@ const {
   PAYMENT_STRIPE_ECHO_URI,
   SERVER_PORT,
   STRIPE_SECRET_KEY,
+  SSL
 } = require('./config.server')
 
 const EMAIL_PAIEMENT_MODEL_HTML = fs.readFileSync(__dirname + '/src/email-paiement.mjml', 'utf-8')
@@ -232,7 +235,9 @@ app.post(API_PAYMENT_STRIPE_URI, (req, res) => {
   })
 })
 
-app.listen(SERVER_PORT, error => {
+const server = SSL ? https.createServer(SSL, app) : http.createServer(app)
+
+server.listen(SERVER_PORT, error => {
   if (error) {
     throw error
   }
